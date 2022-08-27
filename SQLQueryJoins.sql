@@ -1,0 +1,1 @@
+SELECT Projects.ProjectName, Tasks.TaskName, Users.UserName, Tasks.Status,Tasks.StartDate, Tasks.CompletionDate FROM Tasks JOIN Projects ON Tasks.ProjectID = Projects.ProjectID JOIN Users ON Tasks.TaskOwnerID = Users.UserID;
