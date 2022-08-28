@@ -20,6 +20,14 @@ namespace MolenTaskSolution
 
         private void Frm_Main_Load(object sender, EventArgs e)
         {
+
+            if (Frm_Login.isLogin == true)
+            {
+                lbUserName.Text = Frm_Login.User_Name;
+                lbUserRole.Text = Frm_Login.User_Role;
+            }
+          
+
             if (!panelPages.Controls.Contains(Task_Panel.Instance))
             {
                 panelPages.Controls.Add(Task_Panel.Instance);
@@ -86,6 +94,11 @@ namespace MolenTaskSolution
         private void accountStripMenuItem4_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
