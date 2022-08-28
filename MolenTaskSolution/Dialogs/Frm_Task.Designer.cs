@@ -75,6 +75,7 @@
             this.btnCancel.TabIndex = 22;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // tbxTaskDescription
             // 
@@ -124,10 +125,6 @@
             // cbOwnerSelectFromTask
             // 
             this.cbOwnerSelectFromTask.FormattingEnabled = true;
-            this.cbOwnerSelectFromTask.Items.AddRange(new object[] {
-            "Pdf",
-            "Image",
-            "Text File"});
             this.cbOwnerSelectFromTask.Location = new System.Drawing.Point(140, 261);
             this.cbOwnerSelectFromTask.Name = "cbOwnerSelectFromTask";
             this.cbOwnerSelectFromTask.Size = new System.Drawing.Size(276, 28);
@@ -203,10 +200,6 @@
             // cbProjectSelectFromTask
             // 
             this.cbProjectSelectFromTask.FormattingEnabled = true;
-            this.cbProjectSelectFromTask.Items.AddRange(new object[] {
-            "Pdf",
-            "Image",
-            "Text File"});
             this.cbProjectSelectFromTask.Location = new System.Drawing.Point(141, 28);
             this.cbProjectSelectFromTask.Name = "cbProjectSelectFromTask";
             this.cbProjectSelectFromTask.Size = new System.Drawing.Size(276, 28);

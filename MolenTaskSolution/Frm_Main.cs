@@ -12,42 +12,80 @@ namespace MolenTaskSolution
             InitializeComponent();
         }
 
-        //private void btnUsers_Click(object sender, EventArgs e)
-        //{
-        //    page_UsersFrmMain.BringToFront();
-        //}
-
         private void page_UsersFrmMain_Load(object sender, EventArgs e)
         {
-  
+
+
         }
 
         private void Frm_Main_Load(object sender, EventArgs e)
         {
-
+            if (!panelPages.Controls.Contains(Task_Panel.Instance))
+            {
+                panelPages.Controls.Add(Task_Panel.Instance);
+                Task_Panel.Instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                Task_Panel.Instance.BringToFront();
+            }
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            Frm_Login loginFrm = new Frm_Login();
-            loginFrm.Show();
-            this.Close();
-        }
-
-        private void page_Users1_Load(object sender, EventArgs e)
-        {
-
+            this.Close();           
         }
 
         private void btnTasks_Click(object sender, EventArgs e)
         {
-            mainPage_Task.BringToFront();
+            if (!panelPages.Controls.Contains(Task_Panel.Instance))
+            {
+                panelPages.Controls.Add(Task_Panel.Instance);
+                Task_Panel.Instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                Task_Panel.Instance.BringToFront();
+            }
+            lbPageName.Text = btnTasks.Text;
         }
 
-        private void mainPage_Task_Load(object sender, EventArgs e)
+        private void tasksToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Page_Task newTaskMainPage = new Page_Task();
-            newTaskMainPage.Show();
+            Task_Panel.Instance.BringToFront();
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            if (!panelPages.Controls.Contains(User_Panel.Instance))
+            {
+                panelPages.Controls.Add(User_Panel.Instance);
+                User_Panel.Instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                User_Panel.Instance.BringToFront();
+            }
+            lbPageName.Text = btnUsers.Text;
+        }
+
+        private void btnProjects_Click(object sender, EventArgs e)
+        {
+            if (!panelPages.Controls.Contains(Project_Panel.Instance))
+            {
+                panelPages.Controls.Add(Project_Panel.Instance);
+                Project_Panel.Instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                Project_Panel.Instance.BringToFront();
+            }
+            lbPageName.Text = btnProjects.Text;
+        }
+
+        private void accountStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace MolenTaskSolution
             // see https://aka.ms/applicationconfiguration.      
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_Login());
+            Application.Run(new Frm_Main());
         }
     }
 }

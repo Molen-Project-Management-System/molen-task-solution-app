@@ -38,7 +38,7 @@
             this.accountStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.accountStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelMenu = new System.Windows.Forms.Panel();
             this.lbUserRole = new System.Windows.Forms.Label();
             this.lbUserName = new System.Windows.Forms.Label();
             this.pbUser = new System.Windows.Forms.PictureBox();
@@ -49,11 +49,11 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnUsers = new System.Windows.Forms.Button();
             this.btnTasks = new System.Windows.Forms.Button();
-            this.btnProject = new System.Windows.Forms.Button();
+            this.btnProjects = new System.Windows.Forms.Button();
             this.lbPageName = new System.Windows.Forms.Label();
-            this.mainPage_Task = new MolenTaskSolution.Pages.Page_Task();
+            this.panelPages = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +71,7 @@
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(7, 357);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(283, 206);
+            this.menuStrip1.Size = new System.Drawing.Size(283, 250);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -98,6 +98,7 @@
             this.tasksToolStripMenuItem.Text = "&Tasks      ";
             this.tasksToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.tasksToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.tasksToolStripMenuItem.Click += new System.EventHandler(this.tasksToolStripMenuItem_Click);
             // 
             // usersToolStripMenuItem
             // 
@@ -150,22 +151,23 @@
             this.accountStripMenuItem4.Name = "accountStripMenuItem4";
             this.accountStripMenuItem4.Size = new System.Drawing.Size(247, 30);
             this.accountStripMenuItem4.Text = "&Logout";
+            this.accountStripMenuItem4.Click += new System.EventHandler(this.accountStripMenuItem4_Click);
             // 
-            // panel1
+            // panelMenu
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.Controls.Add(this.menuStrip1);
-            this.panel1.Controls.Add(this.lbUserRole);
-            this.panel1.Controls.Add(this.lbUserName);
-            this.panel1.Controls.Add(this.pbUser);
-            this.panel1.Controls.Add(this.lbcopyrght);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(307, 849);
-            this.panel1.TabIndex = 1;
+            this.panelMenu.Controls.Add(this.menuStrip1);
+            this.panelMenu.Controls.Add(this.lbUserRole);
+            this.panelMenu.Controls.Add(this.lbUserName);
+            this.panelMenu.Controls.Add(this.pbUser);
+            this.panelMenu.Controls.Add(this.lbcopyrght);
+            this.panelMenu.Controls.Add(this.label3);
+            this.panelMenu.Controls.Add(this.label1);
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(296, 849);
+            this.panelMenu.TabIndex = 1;
             // 
             // lbUserRole
             // 
@@ -235,7 +237,7 @@
             this.groupBox1.Controls.Add(this.btnLogout);
             this.groupBox1.Controls.Add(this.btnUsers);
             this.groupBox1.Controls.Add(this.btnTasks);
-            this.groupBox1.Controls.Add(this.btnProject);
+            this.groupBox1.Controls.Add(this.btnProjects);
             this.groupBox1.Controls.Add(this.lbPageName);
             this.groupBox1.Location = new System.Drawing.Point(302, 783);
             this.groupBox1.Name = "groupBox1";
@@ -249,7 +251,7 @@
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnLogout.Location = new System.Drawing.Point(317, 27);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(94, 29);
+            this.btnLogout.Size = new System.Drawing.Size(94, 32);
             this.btnLogout.TabIndex = 1;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -260,31 +262,33 @@
             this.btnUsers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnUsers.Location = new System.Drawing.Point(217, 27);
             this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Size = new System.Drawing.Size(94, 29);
+            this.btnUsers.Size = new System.Drawing.Size(94, 32);
             this.btnUsers.TabIndex = 1;
             this.btnUsers.Text = "Users";
             this.btnUsers.UseVisualStyleBackColor = true;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // btnTasks
             // 
             this.btnTasks.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnTasks.Location = new System.Drawing.Point(117, 27);
             this.btnTasks.Name = "btnTasks";
-            this.btnTasks.Size = new System.Drawing.Size(94, 29);
+            this.btnTasks.Size = new System.Drawing.Size(94, 32);
             this.btnTasks.TabIndex = 1;
             this.btnTasks.Text = "Tasks";
             this.btnTasks.UseVisualStyleBackColor = true;
             this.btnTasks.Click += new System.EventHandler(this.btnTasks_Click);
             // 
-            // btnProject
+            // btnProjects
             // 
-            this.btnProject.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnProject.Location = new System.Drawing.Point(17, 27);
-            this.btnProject.Name = "btnProject";
-            this.btnProject.Size = new System.Drawing.Size(94, 29);
-            this.btnProject.TabIndex = 1;
-            this.btnProject.Text = "Projects";
-            this.btnProject.UseVisualStyleBackColor = true;
+            this.btnProjects.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnProjects.Location = new System.Drawing.Point(17, 27);
+            this.btnProjects.Name = "btnProjects";
+            this.btnProjects.Size = new System.Drawing.Size(94, 32);
+            this.btnProjects.TabIndex = 1;
+            this.btnProjects.Text = "Projects";
+            this.btnProjects.UseVisualStyleBackColor = true;
+            this.btnProjects.Click += new System.EventHandler(this.btnProjects_Click);
             // 
             // lbPageName
             // 
@@ -297,22 +301,21 @@
             this.lbPageName.TabIndex = 3;
             this.lbPageName.Text = "Page Name Here";
             // 
-            // mainPage_Task
+            // panelPages
             // 
-            this.mainPage_Task.Location = new System.Drawing.Point(308, 0);
-            this.mainPage_Task.Name = "mainPage_Task";
-            this.mainPage_Task.Size = new System.Drawing.Size(1253, 785);
-            this.mainPage_Task.TabIndex = 2;
-            this.mainPage_Task.Load += new System.EventHandler(this.mainPage_Task_Load);
+            this.panelPages.Location = new System.Drawing.Point(293, 0);
+            this.panelPages.Name = "panelPages";
+            this.panelPages.Size = new System.Drawing.Size(1268, 785);
+            this.panelPages.TabIndex = 2;
             // 
             // Frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1561, 849);
-            this.Controls.Add(this.mainPage_Task);
+            this.Controls.Add(this.panelPages);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Frm_Main";
@@ -321,8 +324,8 @@
             this.Load += new System.EventHandler(this.Frm_Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelMenu.ResumeLayout(false);
+            this.panelMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -341,7 +344,7 @@
         private ToolStripMenuItem accountStripMenuItem3;
         private ToolStripSeparator toolStripSeparator6;
         private ToolStripMenuItem accountStripMenuItem4;
-        private Panel panel1;
+        private Panel panelMenu;
         private Label lbcopyrght;
         private Label label3;
         private Label label1;
@@ -349,11 +352,11 @@
         private Label lbUserRole;
         private Label lbUserName;
         private GroupBox groupBox1;
-        private Button btnProject;
+        private Button btnProjects;
         private Button btnLogout;
         private Button btnUsers;
         private Button btnTasks;
         private Label lbPageName;
-        private Pages.Page_Task mainPage_Task;
+        private Panel panelPages;
     }
 }

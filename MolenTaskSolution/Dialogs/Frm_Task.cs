@@ -16,7 +16,6 @@ namespace MolenTaskSolution.Dialogs
     public partial class Frm_Task : Form
     {
         dbmolenContext db = new dbmolenContext();
-        //SqlConnection con = new SqlConnection("Server=144.126.158.15,1433;Database=molendb; User ID=administrator; Password=Qwert1234");
         public Frm_Task()
         {
             InitializeComponent();
@@ -36,22 +35,26 @@ namespace MolenTaskSolution.Dialogs
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //con.Open();
-            //SqlCommand com = new SqlCommand("insert into task");
             var newTask = new Task();
 
             var itemProject = cbProjectSelectFromTask.SelectedItem.ToString();
+            var selectedUser = cbOwnerSelectFromTask.SelectedItem.ToString();
 
             var projectId = (from p in db.Projects
                             where p.ProjectName == itemProject
                             select p.ProjectId).First();
 
+            var taskOwner = (from u in db.Users
+                               where u.UserName == selectedUser
+                               select u).First();
+
             // when you have the result from LinQ expression you will always have the list of result set
 
+            //var taskUser = new User();
             newTask.ProjectId = projectId;
-            //newTask.TasksId = int.Parse(tbtaskId.Text);
             newTask.TaskName = txbTaskName.Text;
             newTask.Description = tbxTaskDescription.Text;
+            newTask.TaskOwner = taskOwner;
             newTask.Status = cbStatusTask.Text;
             newTask.DateAdded = DateTime.Now;
             newTask.StartDate = dateTimePickerStart.Value.Date;
@@ -60,14 +63,18 @@ namespace MolenTaskSolution.Dialogs
             {
                 db.Tasks.Add(newTask);
                 db.SaveChanges();
-
-
+                this.Close();
+                MessageBox.Show("Task is created successfully..");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
                 throw;
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
