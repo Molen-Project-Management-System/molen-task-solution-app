@@ -96,6 +96,7 @@
             this.loginFrmTextBoxPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.loginFrmTextBoxPassword.Location = new System.Drawing.Point(55, 297);
             this.loginFrmTextBoxPassword.Name = "loginFrmTextBoxPassword";
+            this.loginFrmTextBoxPassword.PasswordChar = '*';
             this.loginFrmTextBoxPassword.Size = new System.Drawing.Size(340, 34);
             this.loginFrmTextBoxPassword.TabIndex = 42;
             // 

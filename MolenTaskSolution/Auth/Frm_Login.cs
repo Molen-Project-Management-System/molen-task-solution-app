@@ -12,7 +12,6 @@ using System.Data.SqlClient;
 using Microsoft.Data.SqlClient;
 using MolenTaskSolution.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic.ApplicationServices;
 
 namespace MolenTaskSolution.Auth
 {
@@ -26,18 +25,17 @@ namespace MolenTaskSolution.Auth
             InitializeComponent();
         }
 
-        
-        public static string User_Name;
-        public static string User_Password;
-        public static string User_Email;
-        public static string User_Role;
+        public static string? User_Name;
+        public static string? User_Password;
+        public static string? User_Email;
+        public static string? User_Role;
         public static bool isLogin = false;
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            var user = (from s in db.Users
-                        where s.Email == loginFrmTextBoxEmail.Text
-                        select s).FirstOrDefault();
-            if (user?.Password == loginFrmTextBoxPassword.Text)
+            var user =  (from s in db.Users 
+                        where s.Email == loginFrmTextBoxEmail.Text select s).FirstOrDefault();
+            if(user?.Password == loginFrmTextBoxPassword.Text)
             {
                 isLogin = true;
                 var userName = (from n in db.Users
@@ -50,7 +48,10 @@ namespace MolenTaskSolution.Auth
                                 where r.Email == loginFrmTextBoxEmail.Text
                                 select r.Role).FirstOrDefault();
 
-                    this.Close();
+                User_Role = userRole;
+
+                
+                this.Close();
                 th = new Thread(openMainForm);
                 th.SetApartmentState(ApartmentState.STA);
                 th.Start();
@@ -59,9 +60,6 @@ namespace MolenTaskSolution.Auth
             {
                 MessageBox.Show("Either your username or password is incorrect!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
-
-
         }
 
         private void openMainForm(object? obj)
