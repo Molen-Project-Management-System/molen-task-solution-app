@@ -123,7 +123,7 @@ namespace MolenTaskSolution.Pages
                             select t).FirstOrDefault();
                 if (temp == null)
                     return;
-                Frm_Task TaskFrm = new Frm_Task(temp);
+                Frm_Task TaskFrm = new Frm_Task(selectedTaskId);
                 TaskFrm.ShowDialog();
             }
             else

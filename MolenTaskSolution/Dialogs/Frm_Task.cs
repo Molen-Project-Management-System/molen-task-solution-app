@@ -17,21 +17,24 @@ namespace MolenTaskSolution.Dialogs
     {
         dbmolenContext db = new dbmolenContext();
 
+
         bool updating = false;
         Task task = null;
-        public Frm_Task(Task t)
+        public Frm_Task(int id) // get taskid
         {
             InitializeComponent();
             updating = true;
-            task = t;
+            // task = t;
+            task = db.Tasks.Where(t => t.TasksId == id).FirstOrDefault();
             UpdateFieldForEdit();
+
         }
 
         private void UpdateFieldForEdit()
         {
-            //tbxTaskDescription.Text = task.Description;
-            //cbProjectSelectFromTask.Text = 
-
+            Update_UI();
+            tbxTaskDescription.Text = task.Description;
+            txbTaskName.Text = task.TaskName;
         }
 
         public Frm_Task()
@@ -56,14 +59,15 @@ namespace MolenTaskSolution.Dialogs
             cbOwnerSelectFromTask.DataSource = ownerName.ToList();
         }
 
-        
+
 
         public void btnSave_Click(object sender, EventArgs e)
         {
             if (updating)
             {
-                task.Description = tbxTaskDescription.Text;
-                db.SaveChanges();
+                UpdateTask();
+                this.Close();
+                MessageBox.Show("Task is edited successfully..!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
 
             }
@@ -73,16 +77,13 @@ namespace MolenTaskSolution.Dialogs
             var selectedUser = cbOwnerSelectFromTask.SelectedItem.ToString();
 
             var projectId = (from p in db.Projects
-                            where p.ProjectName == itemProject
-                            select p.ProjectId).First();
+                             where p.ProjectName == itemProject
+                             select p.ProjectId).First();
 
             var taskOwner = (from u in db.Users
-                               where u.UserName == selectedUser
-                               select u).First();
+                             where u.UserName == selectedUser
+                             select u).First();
 
-            // when you have the result from LinQ expression you will always have the list of result set
-
-            //var taskUser = new User();
             newTask.ProjectId = projectId;
             newTask.TaskName = txbTaskName.Text;
             newTask.Description = tbxTaskDescription.Text;
@@ -96,12 +97,32 @@ namespace MolenTaskSolution.Dialogs
                 db.Tasks.Add(newTask);
                 db.SaveChanges();
                 this.Close();
-                MessageBox.Show("Task is created successfully..");
+                MessageBox.Show("Task is created successfully..", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             {
                 throw;
             }
+        }
+
+        private void UpdateTask()
+        {
+            var selectedProjectForTask = cbProjectSelectFromTask.SelectedItem.ToString();
+            var selectedUserForTask = cbOwnerSelectFromTask.SelectedItem.ToString();
+
+            var projectIdForTask = (from p in db.Projects
+                                    where p.ProjectName == selectedProjectForTask
+                                    select p.ProjectId).First();
+
+            var taskOwnerForTask = (from u in db.Users
+                                    where u.UserName == selectedUserForTask
+                                    select u).First();
+            task.ProjectId = projectIdForTask;
+            task.Description = tbxTaskDescription.Text;
+            task.TaskName = txbTaskName.Text;
+            task.TaskOwner = taskOwnerForTask;
+            task.Status = cbStatusTask.Text;
+            db.SaveChanges();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
