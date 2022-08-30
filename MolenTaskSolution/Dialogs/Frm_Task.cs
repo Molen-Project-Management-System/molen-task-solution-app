@@ -16,12 +16,35 @@ namespace MolenTaskSolution.Dialogs
     public partial class Frm_Task : Form
     {
         dbmolenContext db = new dbmolenContext();
+
+        bool updating = false;
+        Task task = null;
+        public Frm_Task(Task t)
+        {
+            InitializeComponent();
+            updating = true;
+            task = t;
+            UpdateFieldForEdit();
+        }
+
+        private void UpdateFieldForEdit()
+        {
+            //tbxTaskDescription.Text = task.Description;
+            //cbProjectSelectFromTask.Text = 
+
+        }
+
         public Frm_Task()
         {
             InitializeComponent();
         }
 
         private void Frm_Task_Load(object sender, EventArgs e)
+        {
+            Update_UI();
+        }
+
+        public void Update_UI()
         {
             var projectName = from p in db.Projects
                               select p.ProjectName;
@@ -33,8 +56,17 @@ namespace MolenTaskSolution.Dialogs
             cbOwnerSelectFromTask.DataSource = ownerName.ToList();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        
+
+        public void btnSave_Click(object sender, EventArgs e)
         {
+            if (updating)
+            {
+                task.Description = tbxTaskDescription.Text;
+                db.SaveChanges();
+                return;
+
+            }
             var newTask = new Task();
 
             var itemProject = cbProjectSelectFromTask.SelectedItem.ToString();

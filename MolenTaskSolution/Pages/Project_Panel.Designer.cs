@@ -46,19 +46,17 @@
             // dgwTaskPanel
             // 
             this.dgwTaskPanel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwTaskPanel.Location = new System.Drawing.Point(13, 64);
-            this.dgwTaskPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgwTaskPanel.Location = new System.Drawing.Point(15, 85);
             this.dgwTaskPanel.Name = "dgwTaskPanel";
             this.dgwTaskPanel.RowHeadersWidth = 51;
             this.dgwTaskPanel.RowTemplate.Height = 29;
-            this.dgwTaskPanel.Size = new System.Drawing.Size(1071, 511);
+            this.dgwTaskPanel.Size = new System.Drawing.Size(1224, 681);
             this.dgwTaskPanel.TabIndex = 61;
             // 
             // pbRefresh
             // 
             this.pbRefresh.Image = ((System.Drawing.Image)(resources.GetObject("pbRefresh.Image")));
-            this.pbRefresh.Location = new System.Drawing.Point(248, 14);
-            this.pbRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbRefresh.Location = new System.Drawing.Point(283, 19);
             this.pbRefresh.Name = "pbRefresh";
             this.pbRefresh.Size = new System.Drawing.Size(24, 24);
             this.pbRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -73,10 +71,9 @@
             this.button3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(751, 10);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Location = new System.Drawing.Point(858, 14);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(108, 26);
+            this.button3.Size = new System.Drawing.Size(123, 35);
             this.button3.TabIndex = 59;
             this.button3.Text = "EDIT";
             this.button3.UseVisualStyleBackColor = false;
@@ -88,14 +85,12 @@
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(864, 10);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Location = new System.Drawing.Point(987, 14);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(108, 26);
+            this.button2.Size = new System.Drawing.Size(123, 35);
             this.button2.TabIndex = 57;
             this.button2.Text = "DELETE";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnAdd
             // 
@@ -104,10 +99,9 @@
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(976, 10);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdd.Location = new System.Drawing.Point(1116, 14);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(108, 26);
+            this.btnAdd.Size = new System.Drawing.Size(123, 35);
             this.btnAdd.TabIndex = 58;
             this.btnAdd.Text = "ADD";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -121,10 +115,9 @@
             this.cbxUsersTaskPanel.FormattingEnabled = true;
             this.cbxUsersTaskPanel.Items.AddRange(new object[] {
             "Employee(All)"});
-            this.cbxUsersTaskPanel.Location = new System.Drawing.Point(494, 14);
-            this.cbxUsersTaskPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxUsersTaskPanel.Location = new System.Drawing.Point(565, 19);
             this.cbxUsersTaskPanel.Name = "cbxUsersTaskPanel";
-            this.cbxUsersTaskPanel.Size = new System.Drawing.Size(193, 23);
+            this.cbxUsersTaskPanel.Size = new System.Drawing.Size(220, 28);
             this.cbxUsersTaskPanel.TabIndex = 55;
             // 
             // comboBox1
@@ -139,10 +132,9 @@
             "On Hold",
             "In Progress",
             "Completed"});
-            this.comboBox1.Location = new System.Drawing.Point(299, 14);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox1.Location = new System.Drawing.Point(342, 19);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(190, 23);
+            this.comboBox1.Size = new System.Drawing.Size(217, 28);
             this.comboBox1.TabIndex = 56;
             // 
             // btnSearchTask
@@ -150,26 +142,24 @@
             this.btnSearchTask.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearchTask.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchTask.Image")));
-            this.btnSearchTask.Location = new System.Drawing.Point(248, 14);
-            this.btnSearchTask.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearchTask.Location = new System.Drawing.Point(283, 18);
             this.btnSearchTask.Name = "btnSearchTask";
-            this.btnSearchTask.Size = new System.Drawing.Size(0, 20);
+            this.btnSearchTask.Size = new System.Drawing.Size(0, 27);
             this.btnSearchTask.TabIndex = 54;
             this.btnSearchTask.TabStop = false;
             // 
             // searchBoxTask
             // 
             this.searchBoxTask.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.searchBoxTask.Location = new System.Drawing.Point(13, 14);
-            this.searchBoxTask.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.searchBoxTask.Location = new System.Drawing.Point(15, 19);
             this.searchBoxTask.Name = "searchBoxTask";
-            this.searchBoxTask.Size = new System.Drawing.Size(230, 23);
+            this.searchBoxTask.Size = new System.Drawing.Size(262, 27);
             this.searchBoxTask.TabIndex = 53;
             this.searchBoxTask.Text = "Search..";
             // 
             // Project_Panel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dgwTaskPanel);
             this.Controls.Add(this.pbRefresh);
@@ -180,9 +170,8 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnSearchTask);
             this.Controls.Add(this.searchBoxTask);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Project_Panel";
-            this.Size = new System.Drawing.Size(1098, 585);
+            this.Size = new System.Drawing.Size(1255, 780);
             this.Load += new System.EventHandler(this.Project_Panel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwTaskPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRefresh)).EndInit();

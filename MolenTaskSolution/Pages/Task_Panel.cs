@@ -34,8 +34,6 @@ namespace MolenTaskSolution.Pages
             InitializeComponent();
         }
         dbmolenContext model = new dbmolenContext();
-        
-        //DataSet daset = new DataSet();
 
         private void Page_Task_Load(object sender, EventArgs e)
         {
@@ -48,16 +46,6 @@ namespace MolenTaskSolution.Pages
         }
         void Update_UI()
         {
-            //SqlConnection con = new SqlConnection("Server=144.126.158.15,1433;Database=dbmolen; User ID=administrator; Password=Qwert1234");
-            //string sqlQuery = "SELECT Projects.ProjectName, Tasks.TaskName, Users.UserName, Tasks.Status,Tasks.StartDate, Tasks.CompletionDate FROM [Tasks] JOIN [Projects] ON Tasks.ProjectID = Projects.ProjectID JOIN [Users] ON Tasks.TaskOwnerID = Users.UserID";
-            //SqlCommand com = new SqlCommand(sqlQuery, con);
-            //con.Open();
-            //SqlDataAdapter adtr = new SqlDataAdapter(com);
-            //adtr.SelectCommand = com;
-            //DataTable dt = new DataTable();
-            //adtr.Fill(dt);
-            //dgwTaskPanel.DataSource = dt;
-            //con.Close();
             var username = from u in model.Users
                            where u.UserName != null
                            select u.UserName;
@@ -91,20 +79,6 @@ namespace MolenTaskSolution.Pages
             Update_UI();
         }
 
-
-        // use this part for update
-        private void dgwTaskPanel_DoubleClick(object sender, EventArgs e)
-        {
-            //if (dgwTaskPanel.CurrentRow.Index != -1)
-            //{
-            //    var taskId = from u in db.Tasks
-            //                   select u.TasksId;
-
-                
-            //}
-
-        }
-
         private  void btnDelete_Click(object sender, EventArgs e)
         {
             if (dgwTaskPanel.SelectedRows.Count == 0)
@@ -114,70 +88,46 @@ namespace MolenTaskSolution.Pages
             }
             if (MessageBox.Show("Are you sure you want to delete this record ?", "EF CRUD Operation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                int selectedId=0;
-                foreach (DataGridViewRow row in dgwTaskPanel.SelectedRows)  
-                {
+                DataGridViewRow dr = dgwTaskPanel.SelectedRows[0];
+                //var selectedRowIndex = (int)dgwTaskPanel.SelectedRows[0].Cells[0].Value;
+                var selectedTaskId = Convert.ToInt32(dr.Cells[0].Value);              
 
-
-                    //selectedId = Convert.ToString(row.Cells[1].Value);
-                    selectedId = Convert.ToInt32(row.Cells[0].Value);
-                    
-                }
-              
-               // MessageBox.Show(selectedName);
-
-                SqlConnection con = new SqlConnection("Server=144.126.158.15,1433;Database=dbmolen; User ID=administrator; Password=Qwert1234");
-                con.Open();
-                SqlCommand command = new SqlCommand("DELETE FROM Tasks  WHERE TasksId = '"+selectedId+"';", con); 
-                command.ExecuteNonQuery();
-                con.Close();
-
-
-
-               
-
-
-               /* var deleteTasks =
-                     from t in model.Tasks
-                     where t.TaskName == selectedName
-                         select t;
-
-
-
-
-                var willRemove = model.Tasks.Where(t => t.TaskName == selectedName).FirstOrDefault(); 
-                
+                var taskDel = (from t in model.Tasks
+                               where t.TasksId == selectedTaskId
+                               select t).FirstOrDefault();
+                if (taskDel == null)
+                    return;
+                //var silinecek_task = newTask.Where(t => t.TaskName == selectedRowIndex).FirstOrDefault(); 
                 try
                 {
-                    model.Tasks.Remove(willRemove);
-                    model.SaveChanges();
-
-                }catch(Exception ex)
+                    model.Tasks.Remove(taskDel);
+                    var result = model.SaveChanges();
+                }
+                catch(Exception ex)
                 {
-                    MessageBox.Show("olmadimi yoksa");
-                }*/
-
-
-
-
-                //////////
-
-
-                /* if (this.dgwTaskPanel.SelectedRows.Count > 0)
-                 {
-                     dgwTaskPanel.Rows.RemoveAt(this.dgwTaskPanel.SelectedRows[0].Index);
-                 }*/
-
-
-                //var removedTask = dgwTaskPanel.SelectedRows[0].DataBoundItem;
-
+                    MessageBox.Show(ex.Message);
+                }
             }
-
         }
+        
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (this.dgwTaskPanel.SelectedRows.Count > 0)
+            {
+                DataGridViewRow dr = dgwTaskPanel.SelectedRows[0];
 
-      
+                var selectedTaskId = Convert.ToInt32(dr.Cells[0].Value);
 
-
-    
+                var temp = (from t in model.Tasks
+                            where t.TasksId == selectedTaskId
+                            select t).FirstOrDefault();
+                if (temp == null)
+                    return;
+                Frm_Task TaskFrm = new Frm_Task(temp);
+                TaskFrm.ShowDialog();
+            }
+            else
+                MessageBox.Show("Please select the entire row!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
     }
 }

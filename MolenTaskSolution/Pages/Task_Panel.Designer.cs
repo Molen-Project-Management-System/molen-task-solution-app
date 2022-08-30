@@ -148,6 +148,7 @@
             this.button3.TabIndex = 50;
             this.button3.Text = "EDIT";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // contextMenuStrip1
             // 
@@ -176,7 +177,6 @@
             this.dgwTaskPanel.RowTemplate.Height = 29;
             this.dgwTaskPanel.Size = new System.Drawing.Size(1224, 681);
             this.dgwTaskPanel.TabIndex = 52;
-            this.dgwTaskPanel.DoubleClick += new System.EventHandler(this.dgwTaskPanel_DoubleClick);
             // 
             // Task_Panel
             // 

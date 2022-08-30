@@ -235,22 +235,21 @@
         }
 
         #endregion
-
-        private Button btnSave;
-        private Button btnCancel;
-        private TextBox tbxTaskDescription;
-        private TextBox txbTaskName;
         private Label label3;
         private Label lbFileName;
         private Label lbOwner;
-        private ComboBox cbOwnerSelectFromTask;
         private Label label2;
         private Label label1;
-        private DateTimePicker dateTimePickerCompletion;
         private Label label4;
-        private DateTimePicker dateTimePickerStart;
         private Label lbTaskStatus;
-        private ComboBox cbStatusTask;
-        private ComboBox cbProjectSelectFromTask;
+        public Button btnSave;
+        public Button btnCancel;
+        public TextBox tbxTaskDescription;
+        public TextBox txbTaskName;
+        public ComboBox cbOwnerSelectFromTask;
+        public DateTimePicker dateTimePickerCompletion;
+        public DateTimePicker dateTimePickerStart;
+        public ComboBox cbStatusTask;
+        public ComboBox cbProjectSelectFromTask;
     }
 }
