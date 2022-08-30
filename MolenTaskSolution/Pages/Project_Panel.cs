@@ -83,6 +83,9 @@ namespace MolenTaskSolution.Pages
             Update_UI();
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

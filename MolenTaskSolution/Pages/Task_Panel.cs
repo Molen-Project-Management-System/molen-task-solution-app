@@ -67,6 +67,7 @@ namespace MolenTaskSolution.Pages
                          join p in model.Projects on t.ProjectId equals p.ProjectId
                          select new
                          {
+                             t.TasksId,
                              p.ProjectName,
                              t.TaskName,
                              u.UserName,
@@ -113,12 +114,13 @@ namespace MolenTaskSolution.Pages
             }
             if (MessageBox.Show("Are you sure you want to delete this record ?", "EF CRUD Operation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                string selectedName="";
+                int selectedId=0;
                 foreach (DataGridViewRow row in dgwTaskPanel.SelectedRows)  
                 {
 
 
-                    selectedName = Convert.ToString(row.Cells[1].Value);
+                    //selectedId = Convert.ToString(row.Cells[1].Value);
+                    selectedId = Convert.ToInt32(row.Cells[0].Value);
                     
                 }
               
@@ -126,7 +128,7 @@ namespace MolenTaskSolution.Pages
 
                 SqlConnection con = new SqlConnection("Server=144.126.158.15,1433;Database=dbmolen; User ID=administrator; Password=Qwert1234");
                 con.Open();
-                SqlCommand command = new SqlCommand("DELETE FROM Tasks  WHERE TaskName = '"+selectedName+"';", con); 
+                SqlCommand command = new SqlCommand("DELETE FROM Tasks  WHERE TasksId = '"+selectedId+"';", con); 
                 command.ExecuteNonQuery();
                 con.Close();
 
@@ -140,11 +142,14 @@ namespace MolenTaskSolution.Pages
                      where t.TaskName == selectedName
                          select t;
 
-                var silinecek_task = model.Tasks.Where(t => t.TaskName == selectedName).FirstOrDefault(); 
-                // islem sirasina gore selectedName forloopun disina cikip yeni deger alincaya kadar null atiyor. 
+
+
+
+                var willRemove = model.Tasks.Where(t => t.TaskName == selectedName).FirstOrDefault(); 
+                
                 try
                 {
-                    model.Tasks.Remove(silinecek_task);
+                    model.Tasks.Remove(willRemove);
                     model.SaveChanges();
 
                 }catch(Exception ex)
