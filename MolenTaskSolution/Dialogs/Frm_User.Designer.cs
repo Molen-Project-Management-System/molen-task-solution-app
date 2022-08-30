@@ -31,17 +31,17 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_User));
             this.lbName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txName = new System.Windows.Forms.TextBox();
             this.errorProviderApp = new System.Windows.Forms.ErrorProvider(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbGender = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txEmail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cbRole = new System.Windows.Forms.ComboBox();
+            this.dtpAddedDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button1 = new System.Windows.Forms.Button();
@@ -61,12 +61,12 @@
             this.lbName.TabIndex = 0;
             this.lbName.Text = "Name*";
             // 
-            // textBox1
+            // txName
             // 
-            this.textBox1.Location = new System.Drawing.Point(129, 230);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(276, 27);
-            this.textBox1.TabIndex = 1;
+            this.txName.Location = new System.Drawing.Point(129, 230);
+            this.txName.Name = "txName";
+            this.txName.Size = new System.Drawing.Size(276, 27);
+            this.txName.TabIndex = 1;
             // 
             // errorProviderApp
             // 
@@ -98,13 +98,17 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Gender*";
             // 
-            // comboBox1
+            // cbGender
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(129, 277);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(276, 28);
-            this.comboBox1.TabIndex = 3;
+            this.cbGender.FormattingEnabled = true;
+            this.cbGender.Items.AddRange(new object[] {
+            "Male",
+            "Female",
+            "Unknown"});
+            this.cbGender.Location = new System.Drawing.Point(129, 277);
+            this.cbGender.Name = "cbGender";
+            this.cbGender.Size = new System.Drawing.Size(276, 28);
+            this.cbGender.TabIndex = 3;
             // 
             // label3
             // 
@@ -115,12 +119,12 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Email*";
             // 
-            // textBox2
+            // txEmail
             // 
-            this.textBox2.Location = new System.Drawing.Point(129, 332);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(276, 27);
-            this.textBox2.TabIndex = 1;
+            this.txEmail.Location = new System.Drawing.Point(129, 332);
+            this.txEmail.Name = "txEmail";
+            this.txEmail.Size = new System.Drawing.Size(276, 27);
+            this.txEmail.TabIndex = 1;
             // 
             // label4
             // 
@@ -131,20 +135,25 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Role*";
             // 
-            // comboBox2
+            // cbRole
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(129, 384);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(276, 28);
-            this.comboBox2.TabIndex = 3;
+            this.cbRole.FormattingEnabled = true;
+            this.cbRole.Items.AddRange(new object[] {
+            "Developer",
+            "Project Leader",
+            "Customer",
+            "Manager"});
+            this.cbRole.Location = new System.Drawing.Point(129, 384);
+            this.cbRole.Name = "cbRole";
+            this.cbRole.Size = new System.Drawing.Size(276, 28);
+            this.cbRole.TabIndex = 3;
             // 
-            // dateTimePicker1
+            // dtpAddedDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(129, 435);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(276, 27);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dtpAddedDate.Location = new System.Drawing.Point(129, 435);
+            this.dtpAddedDate.Name = "dtpAddedDate";
+            this.dtpAddedDate.Size = new System.Drawing.Size(276, 27);
+            this.dtpAddedDate.TabIndex = 4;
             // 
             // label5
             // 
@@ -199,6 +208,7 @@
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -225,12 +235,12 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.dtpAddedDate);
+            this.Controls.Add(this.cbRole);
+            this.Controls.Add(this.cbGender);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txEmail);
+            this.Controls.Add(this.txName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -250,17 +260,17 @@
         #endregion
 
         private Label lbName;
-        private TextBox textBox1;
+        private TextBox txName;
         private ErrorProvider errorProviderApp;
         private Button btnSave;
         private Button btnCancel;
         private Button button2;
         private Button button1;
-        private DateTimePicker dateTimePicker1;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
+        private DateTimePicker dtpAddedDate;
+        private ComboBox cbRole;
+        private ComboBox cbGender;
         private PictureBox pictureBox1;
-        private TextBox textBox2;
+        private TextBox txEmail;
         private Label label1;
         private Label label5;
         private Label label4;

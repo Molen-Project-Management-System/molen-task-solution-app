@@ -134,12 +134,14 @@
             this.accountStripMenuItem2.Name = "accountStripMenuItem2";
             this.accountStripMenuItem2.Size = new System.Drawing.Size(247, 30);
             this.accountStripMenuItem2.Text = "&My Profile";
+            this.accountStripMenuItem2.Click += new System.EventHandler(this.accountStripMenuItem2_Click);
             // 
             // accountStripMenuItem3
             // 
             this.accountStripMenuItem3.Name = "accountStripMenuItem3";
             this.accountStripMenuItem3.Size = new System.Drawing.Size(247, 30);
             this.accountStripMenuItem3.Text = "&Change Password";
+            this.accountStripMenuItem3.Click += new System.EventHandler(this.accountStripMenuItem3_Click);
             // 
             // toolStripSeparator6
             // 

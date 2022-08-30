@@ -28,169 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Project_Panel));
-            this.dgwTaskPanel = new System.Windows.Forms.DataGridView();
-            this.pbRefresh = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.cbxUsersTaskPanel = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btnSearchTask = new System.Windows.Forms.PictureBox();
-            this.searchBoxTask = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwTaskPanel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbRefresh)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSearchTask)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // dgwTaskPanel
+            // button1
             // 
-            this.dgwTaskPanel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwTaskPanel.Location = new System.Drawing.Point(15, 85);
-            this.dgwTaskPanel.Name = "dgwTaskPanel";
-            this.dgwTaskPanel.RowHeadersWidth = 51;
-            this.dgwTaskPanel.RowTemplate.Height = 29;
-            this.dgwTaskPanel.Size = new System.Drawing.Size(1224, 681);
-            this.dgwTaskPanel.TabIndex = 61;
-            // 
-            // pbRefresh
-            // 
-            this.pbRefresh.Image = ((System.Drawing.Image)(resources.GetObject("pbRefresh.Image")));
-            this.pbRefresh.Location = new System.Drawing.Point(283, 19);
-            this.pbRefresh.Name = "pbRefresh";
-            this.pbRefresh.Size = new System.Drawing.Size(24, 24);
-            this.pbRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbRefresh.TabIndex = 60;
-            this.pbRefresh.TabStop = false;
-            this.pbRefresh.Click += new System.EventHandler(this.pbRefresh_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Olive;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(858, 14);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(123, 35);
-            this.button3.TabIndex = 59;
-            this.button3.Text = "EDIT";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.DarkRed;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(987, 14);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(123, 35);
-            this.button2.TabIndex = 57;
-            this.button2.Text = "DELETE";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(1116, 14);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(123, 35);
-            this.btnAdd.TabIndex = 58;
-            this.btnAdd.Text = "ADD";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // cbxUsersTaskPanel
-            // 
-            this.cbxUsersTaskPanel.BackColor = System.Drawing.SystemColors.Highlight;
-            this.cbxUsersTaskPanel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cbxUsersTaskPanel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.cbxUsersTaskPanel.FormattingEnabled = true;
-            this.cbxUsersTaskPanel.Items.AddRange(new object[] {
-            "Employee(All)"});
-            this.cbxUsersTaskPanel.Location = new System.Drawing.Point(565, 19);
-            this.cbxUsersTaskPanel.Name = "cbxUsersTaskPanel";
-            this.cbxUsersTaskPanel.Size = new System.Drawing.Size(220, 28);
-            this.cbxUsersTaskPanel.TabIndex = 55;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.comboBox1.DropDownWidth = 220;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Status (All)",
-            "On Hold",
-            "In Progress",
-            "Completed"});
-            this.comboBox1.Location = new System.Drawing.Point(342, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(217, 28);
-            this.comboBox1.TabIndex = 56;
-            // 
-            // btnSearchTask
-            // 
-            this.btnSearchTask.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearchTask.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchTask.Image")));
-            this.btnSearchTask.Location = new System.Drawing.Point(283, 18);
-            this.btnSearchTask.Name = "btnSearchTask";
-            this.btnSearchTask.Size = new System.Drawing.Size(0, 27);
-            this.btnSearchTask.TabIndex = 54;
-            this.btnSearchTask.TabStop = false;
-            // 
-            // searchBoxTask
-            // 
-            this.searchBoxTask.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.searchBoxTask.Location = new System.Drawing.Point(15, 19);
-            this.searchBoxTask.Name = "searchBoxTask";
-            this.searchBoxTask.Size = new System.Drawing.Size(262, 27);
-            this.searchBoxTask.TabIndex = 53;
-            this.searchBoxTask.Text = "Search..";
+            this.button1.Location = new System.Drawing.Point(173, 93);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 29);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Project_Panel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dgwTaskPanel);
-            this.Controls.Add(this.pbRefresh);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.cbxUsersTaskPanel);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.btnSearchTask);
-            this.Controls.Add(this.searchBoxTask);
+            this.Controls.Add(this.button1);
             this.Name = "Project_Panel";
-            this.Size = new System.Drawing.Size(1255, 780);
-            this.Load += new System.EventHandler(this.Project_Panel_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgwTaskPanel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbRefresh)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSearchTask)).EndInit();
+            this.Size = new System.Drawing.Size(615, 508);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private DataGridView dgwTaskPanel;
-        private PictureBox pbRefresh;
-        private Button button3;
-        private Button button2;
-        private Button btnAdd;
-        private ComboBox cbxUsersTaskPanel;
-        private ComboBox comboBox1;
-        private PictureBox btnSearchTask;
-        private TextBox searchBoxTask;
+        private Button button1;
     }
 }

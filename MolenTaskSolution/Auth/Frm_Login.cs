@@ -26,6 +26,7 @@ namespace MolenTaskSolution.Auth
         }
 
         public static string? User_Name;
+        public static int? User_Id;
         public static string? User_Password;
         public static string? User_Email;
         public static string? User_Role;
@@ -35,21 +36,14 @@ namespace MolenTaskSolution.Auth
         {
             var user =  (from s in db.Users 
                         where s.Email == loginFrmTextBoxEmail.Text select s).FirstOrDefault();
+            
             if(user?.Password == loginFrmTextBoxPassword.Text)
             {
                 isLogin = true;
-                var userName = (from n in db.Users
-                                where n.Email == loginFrmTextBoxEmail.Text
-                                select n.UserName).FirstOrDefault();
 
-                User_Name = userName;
-
-                var userRole = (from r in db.Users
-                                where r.Email == loginFrmTextBoxEmail.Text
-                                select r.Role).FirstOrDefault();
-
-                User_Role = userRole;
-
+                User_Name = user.UserName;
+                User_Id = user.UserId;
+                User_Role = user.Role; ;
                 
                 this.Close();
                 th = new Thread(openMainForm);
@@ -72,9 +66,6 @@ namespace MolenTaskSolution.Auth
 
         }
 
-        private void Frm_Login_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }

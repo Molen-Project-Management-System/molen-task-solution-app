@@ -32,8 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Task_Panel));
             this.searchBoxTask = new System.Windows.Forms.TextBox();
             this.btnSearchTask = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.cbxUsersTaskPanel = new System.Windows.Forms.ComboBox();
+            this.cbxStatus = new System.Windows.Forms.ComboBox();
+            this.cbxUsers = new System.Windows.Forms.ComboBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -71,35 +71,38 @@
             this.btnSearchTask.TabIndex = 3;
             this.btnSearchTask.TabStop = false;
             // 
-            // comboBox1
+            // cbxStatus
             // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.comboBox1.DropDownWidth = 220;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Status (All)",
+            this.cbxStatus.BackColor = System.Drawing.SystemColors.Highlight;
+            this.cbxStatus.DropDownWidth = 220;
+            this.cbxStatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cbxStatus.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.cbxStatus.FormattingEnabled = true;
+            this.cbxStatus.Items.AddRange(new object[] {
+            "All",
             "On Hold",
             "In Progress",
-            "Completed"});
-            this.comboBox1.Location = new System.Drawing.Point(342, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(217, 28);
-            this.comboBox1.TabIndex = 4;
+            "Completed",
+            "Cancelled"});
+            this.cbxStatus.Location = new System.Drawing.Point(342, 19);
+            this.cbxStatus.Name = "cbxStatus";
+            this.cbxStatus.Size = new System.Drawing.Size(217, 28);
+            this.cbxStatus.TabIndex = 4;
+            this.cbxStatus.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // cbxUsersTaskPanel
+            // cbxUsers
             // 
-            this.cbxUsersTaskPanel.BackColor = System.Drawing.SystemColors.Highlight;
-            this.cbxUsersTaskPanel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cbxUsersTaskPanel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.cbxUsersTaskPanel.FormattingEnabled = true;
-            this.cbxUsersTaskPanel.Items.AddRange(new object[] {
+            this.cbxUsers.BackColor = System.Drawing.SystemColors.Highlight;
+            this.cbxUsers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cbxUsers.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.cbxUsers.FormattingEnabled = true;
+            this.cbxUsers.Items.AddRange(new object[] {
             "Employee(All)"});
-            this.cbxUsersTaskPanel.Location = new System.Drawing.Point(565, 19);
-            this.cbxUsersTaskPanel.Name = "cbxUsersTaskPanel";
-            this.cbxUsersTaskPanel.Size = new System.Drawing.Size(220, 28);
-            this.cbxUsersTaskPanel.TabIndex = 4;
+            this.cbxUsers.Location = new System.Drawing.Point(565, 19);
+            this.cbxUsers.Name = "cbxUsers";
+            this.cbxUsers.Size = new System.Drawing.Size(220, 28);
+            this.cbxUsers.TabIndex = 4;
+            this.cbxUsers.SelectedIndexChanged += new System.EventHandler(this.cbxUsersTaskPanel_SelectedIndexChanged);
             // 
             // btnDelete
             // 
@@ -187,8 +190,8 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.cbxUsersTaskPanel);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbxUsers);
+            this.Controls.Add(this.cbxStatus);
             this.Controls.Add(this.btnSearchTask);
             this.Controls.Add(this.searchBoxTask);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -209,8 +212,8 @@
         #endregion
         private TextBox searchBoxTask;
         private PictureBox btnSearchTask;
-        private ComboBox comboBox1;
-        private ComboBox cbxUsersTaskPanel;
+        private ComboBox cbxStatus;
+        private ComboBox cbxUsers;
         private Button btnDelete;
         private Button button1;
         private BindingSource taskBindingSource;

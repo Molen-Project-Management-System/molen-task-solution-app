@@ -66,7 +66,7 @@ namespace MolenTaskSolution.Pages
                          );
             var tasks = query.ToList();
             dgwTaskPanel.DataSource = tasks;
-            cbxUsersTaskPanel.DataSource = username.ToList();
+            cbxUsers.DataSource = username.ToList();
         }
 
         private void addTask_Click(object sender, EventArgs e)
@@ -128,6 +128,40 @@ namespace MolenTaskSolution.Pages
             }
             else
                 MessageBox.Show("Please select the entire row!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void cbxUsersTaskPanel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxUsers.Text == "All")
+                Update_UI();
+            else
+            {
+                var username = from u in model.Users
+                               where u.UserName == cbxUsers.Text
+                               select u.UserName;
+
+                var query = (from t in model.Tasks
+                             join u in model.Users on t.TaskOwnerId equals u.UserId
+                             join p in model.Projects on t.ProjectId equals p.ProjectId
+                             select new
+                             {
+                                 t.TasksId,
+                                 p.ProjectName,
+                                 t.TaskName,
+                                 u.UserName,
+                                 t.Status,
+                                 t.StartDate,
+                                 t.CompletionDate
+                             }
+                             );
+                var tasks = query.ToList();
+                dgwTaskPanel.DataSource = tasks;
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -19,13 +19,14 @@ namespace MolenTaskSolution.Dialogs
 
 
         bool updating = false;
-        Task task = null;
+        Task ?task = null;
         public Frm_Task(int id) // get taskid
         {
             InitializeComponent();
             updating = true;
-            // task = t;
             task = db.Tasks.Where(t => t.TasksId == id).FirstOrDefault();
+            if (task == null)
+                return ;
             UpdateFieldForEdit();
 
         }
