@@ -16,10 +16,12 @@ namespace MolenTaskSolution.Dialogs
     public partial class Frm_Task : Form
     {
         dbmolenContext db = new dbmolenContext();
-
-
         bool updating = false;
         Task ?task = null;
+        public Frm_Task()
+        {
+            InitializeComponent();
+        }
         public Frm_Task(int id) // get taskid
         {
             InitializeComponent();
@@ -28,21 +30,13 @@ namespace MolenTaskSolution.Dialogs
             if (task == null)
                 return ;
             UpdateFieldForEdit();
-
         }
-
         private void UpdateFieldForEdit()
         {
             Update_UI();
             tbxTaskDescription.Text = task.Description;
             txbTaskName.Text = task.TaskName;
         }
-
-        public Frm_Task()
-        {
-            InitializeComponent();
-        }
-
         private void Frm_Task_Load(object sender, EventArgs e)
         {
             Update_UI();
@@ -56,11 +50,9 @@ namespace MolenTaskSolution.Dialogs
             var ownerName = from u in db.Users
                             select u.UserName;
 
-            cbProjectSelectFromTask.DataSource = projectName.ToList();
+            cbProjectSelectFromTask.DataSource = projectName.Distinct().ToList();
             cbOwnerSelectFromTask.DataSource = ownerName.ToList();
         }
-
-
 
         public void btnSave_Click(object sender, EventArgs e)
         {

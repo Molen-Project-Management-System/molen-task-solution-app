@@ -150,9 +150,10 @@
             // 
             // dtpAddedDate
             // 
+            this.dtpAddedDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpAddedDate.Location = new System.Drawing.Point(129, 435);
             this.dtpAddedDate.Name = "dtpAddedDate";
-            this.dtpAddedDate.Size = new System.Drawing.Size(276, 27);
+            this.dtpAddedDate.Size = new System.Drawing.Size(132, 27);
             this.dtpAddedDate.TabIndex = 4;
             // 
             // label5

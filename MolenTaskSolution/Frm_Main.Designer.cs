@@ -86,6 +86,7 @@
             this.projectToolStripMenuItem.Text = "&Projects  ";
             this.projectToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.projectToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.projectToolStripMenuItem.Click += new System.EventHandler(this.projectToolStripMenuItem_Click);
             // 
             // tasksToolStripMenuItem
             // 
@@ -209,7 +210,7 @@
             this.lbcopyrght.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbcopyrght.AutoSize = true;
-            this.lbcopyrght.Location = new System.Drawing.Point(86, 810);
+            this.lbcopyrght.Location = new System.Drawing.Point(86, 813);
             this.lbcopyrght.Name = "lbcopyrght";
             this.lbcopyrght.Size = new System.Drawing.Size(104, 20);
             this.lbcopyrght.TabIndex = 3;
@@ -253,7 +254,7 @@
             // btnLogout
             // 
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLogout.Location = new System.Drawing.Point(317, 27);
+            this.btnLogout.Location = new System.Drawing.Point(317, 24);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(94, 32);
             this.btnLogout.TabIndex = 1;
@@ -264,7 +265,7 @@
             // btnUsers
             // 
             this.btnUsers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnUsers.Location = new System.Drawing.Point(217, 27);
+            this.btnUsers.Location = new System.Drawing.Point(217, 24);
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Size = new System.Drawing.Size(94, 32);
             this.btnUsers.TabIndex = 1;
@@ -275,7 +276,7 @@
             // btnTasks
             // 
             this.btnTasks.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTasks.Location = new System.Drawing.Point(117, 27);
+            this.btnTasks.Location = new System.Drawing.Point(117, 24);
             this.btnTasks.Name = "btnTasks";
             this.btnTasks.Size = new System.Drawing.Size(94, 32);
             this.btnTasks.TabIndex = 1;
@@ -286,7 +287,7 @@
             // btnProjects
             // 
             this.btnProjects.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnProjects.Location = new System.Drawing.Point(17, 27);
+            this.btnProjects.Location = new System.Drawing.Point(17, 24);
             this.btnProjects.Name = "btnProjects";
             this.btnProjects.Size = new System.Drawing.Size(94, 32);
             this.btnProjects.TabIndex = 1;

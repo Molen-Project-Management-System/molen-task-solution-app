@@ -42,13 +42,13 @@
             this.button3 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dgwTaskPanel = new System.Windows.Forms.DataGridView();
+            this.dgwUserPanel = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.btnSearchTask)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.taskBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.taskBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwTaskPanel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwUserPanel)).BeginInit();
             this.SuspendLayout();
             // 
             // searchBoxTask
@@ -170,22 +170,22 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // dgwTaskPanel
+            // dgwUserPanel
             // 
-            this.dgwTaskPanel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgwTaskPanel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwTaskPanel.Location = new System.Drawing.Point(15, 85);
-            this.dgwTaskPanel.Name = "dgwTaskPanel";
-            this.dgwTaskPanel.RowHeadersWidth = 51;
-            this.dgwTaskPanel.RowTemplate.Height = 29;
-            this.dgwTaskPanel.Size = new System.Drawing.Size(1224, 681);
-            this.dgwTaskPanel.TabIndex = 52;
+            this.dgwUserPanel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgwUserPanel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwUserPanel.Location = new System.Drawing.Point(15, 85);
+            this.dgwUserPanel.Name = "dgwUserPanel";
+            this.dgwUserPanel.RowHeadersWidth = 51;
+            this.dgwUserPanel.RowTemplate.Height = 29;
+            this.dgwUserPanel.Size = new System.Drawing.Size(1224, 681);
+            this.dgwUserPanel.TabIndex = 52;
             // 
             // Task_Panel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dgwTaskPanel);
+            this.Controls.Add(this.dgwUserPanel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnDelete);
@@ -203,7 +203,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.taskBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.taskBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwTaskPanel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwUserPanel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,6 +222,6 @@
         private Button button3;
         private ContextMenuStrip contextMenuStrip1;
         private PictureBox pictureBox1;
-        private DataGridView dgwTaskPanel;
+        private DataGridView dgwUserPanel;
     }
 }

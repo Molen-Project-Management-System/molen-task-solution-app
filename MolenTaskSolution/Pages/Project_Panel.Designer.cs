@@ -28,31 +28,171 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Project_Panel));
+            this.dgwProjectPanel = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnEditProject = new System.Windows.Forms.Button();
+            this.btnDeleteProject = new System.Windows.Forms.Button();
+            this.btnAddProject = new System.Windows.Forms.Button();
+            this.cbxUsers = new System.Windows.Forms.ComboBox();
+            this.cbxStatus = new System.Windows.Forms.ComboBox();
+            this.btnSearchTask = new System.Windows.Forms.PictureBox();
+            this.searchBoxTask = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwProjectPanel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSearchTask)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // dgwProjectPanel
             // 
-            this.button1.Location = new System.Drawing.Point(173, 93);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dgwProjectPanel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgwProjectPanel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwProjectPanel.Location = new System.Drawing.Point(15, 85);
+            this.dgwProjectPanel.Name = "dgwProjectPanel";
+            this.dgwProjectPanel.RowHeadersWidth = 51;
+            this.dgwProjectPanel.RowTemplate.Height = 29;
+            this.dgwProjectPanel.Size = new System.Drawing.Size(1224, 681);
+            this.dgwProjectPanel.TabIndex = 61;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(283, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 60;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnEditProject
+            // 
+            this.btnEditProject.BackColor = System.Drawing.Color.Olive;
+            this.btnEditProject.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditProject.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEditProject.ForeColor = System.Drawing.Color.White;
+            this.btnEditProject.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditProject.Location = new System.Drawing.Point(858, 14);
+            this.btnEditProject.Name = "btnEditProject";
+            this.btnEditProject.Size = new System.Drawing.Size(123, 35);
+            this.btnEditProject.TabIndex = 59;
+            this.btnEditProject.Text = "EDIT";
+            this.btnEditProject.UseVisualStyleBackColor = false;
+            this.btnEditProject.Click += new System.EventHandler(this.btnEditProject_Click);
+            // 
+            // btnDeleteProject
+            // 
+            this.btnDeleteProject.BackColor = System.Drawing.Color.DarkRed;
+            this.btnDeleteProject.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteProject.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnDeleteProject.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteProject.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeleteProject.Location = new System.Drawing.Point(987, 14);
+            this.btnDeleteProject.Name = "btnDeleteProject";
+            this.btnDeleteProject.Size = new System.Drawing.Size(123, 35);
+            this.btnDeleteProject.TabIndex = 57;
+            this.btnDeleteProject.Text = "DELETE";
+            this.btnDeleteProject.UseVisualStyleBackColor = false;
+            // 
+            // btnAddProject
+            // 
+            this.btnAddProject.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnAddProject.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddProject.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAddProject.ForeColor = System.Drawing.Color.White;
+            this.btnAddProject.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddProject.Location = new System.Drawing.Point(1116, 14);
+            this.btnAddProject.Name = "btnAddProject";
+            this.btnAddProject.Size = new System.Drawing.Size(123, 35);
+            this.btnAddProject.TabIndex = 58;
+            this.btnAddProject.Text = "ADD";
+            this.btnAddProject.UseVisualStyleBackColor = false;
+            this.btnAddProject.Click += new System.EventHandler(this.btnAddProject_Click);
+            // 
+            // cbxUsers
+            // 
+            this.cbxUsers.BackColor = System.Drawing.SystemColors.Highlight;
+            this.cbxUsers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cbxUsers.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.cbxUsers.FormattingEnabled = true;
+            this.cbxUsers.Items.AddRange(new object[] {
+            "Employee(All)"});
+            this.cbxUsers.Location = new System.Drawing.Point(565, 19);
+            this.cbxUsers.Name = "cbxUsers";
+            this.cbxUsers.Size = new System.Drawing.Size(220, 28);
+            this.cbxUsers.TabIndex = 55;
+            // 
+            // cbxStatus
+            // 
+            this.cbxStatus.BackColor = System.Drawing.SystemColors.Highlight;
+            this.cbxStatus.DropDownWidth = 220;
+            this.cbxStatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cbxStatus.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.cbxStatus.FormattingEnabled = true;
+            this.cbxStatus.Items.AddRange(new object[] {
+            "All",
+            "On Hold",
+            "In Progress",
+            "Completed",
+            "Cancelled"});
+            this.cbxStatus.Location = new System.Drawing.Point(342, 19);
+            this.cbxStatus.Name = "cbxStatus";
+            this.cbxStatus.Size = new System.Drawing.Size(217, 28);
+            this.cbxStatus.TabIndex = 56;
+            // 
+            // btnSearchTask
+            // 
+            this.btnSearchTask.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearchTask.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchTask.Image")));
+            this.btnSearchTask.Location = new System.Drawing.Point(283, 18);
+            this.btnSearchTask.Name = "btnSearchTask";
+            this.btnSearchTask.Size = new System.Drawing.Size(0, 27);
+            this.btnSearchTask.TabIndex = 54;
+            this.btnSearchTask.TabStop = false;
+            // 
+            // searchBoxTask
+            // 
+            this.searchBoxTask.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.searchBoxTask.Location = new System.Drawing.Point(15, 19);
+            this.searchBoxTask.Name = "searchBoxTask";
+            this.searchBoxTask.Size = new System.Drawing.Size(262, 27);
+            this.searchBoxTask.TabIndex = 53;
+            this.searchBoxTask.Text = "Search..";
             // 
             // Project_Panel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dgwProjectPanel);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btnEditProject);
+            this.Controls.Add(this.btnDeleteProject);
+            this.Controls.Add(this.btnAddProject);
+            this.Controls.Add(this.cbxUsers);
+            this.Controls.Add(this.cbxStatus);
+            this.Controls.Add(this.btnSearchTask);
+            this.Controls.Add(this.searchBoxTask);
             this.Name = "Project_Panel";
-            this.Size = new System.Drawing.Size(615, 508);
+            this.Size = new System.Drawing.Size(1254, 804);
+            this.Load += new System.EventHandler(this.Project_Panel_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgwProjectPanel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSearchTask)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private Button button1;
+        private DataGridView dgwProjectPanel;
+        private PictureBox pictureBox1;
+        private Button btnEditProject;
+        private Button btnDeleteProject;
+        private Button btnAddProject;
+        private ComboBox cbxUsers;
+        private ComboBox cbxStatus;
+        private PictureBox btnSearchTask;
+        private TextBox searchBoxTask;
     }
 }

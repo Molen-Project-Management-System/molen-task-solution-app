@@ -35,12 +35,24 @@ namespace MolenTaskSolution.Auth
             {
                 var newPassword = txNewPassword.Text;
                 var confirmPassword = txConfirmPassword.Text;
-                if (newPassword == confirmPassword)
+                if (newPassword == "" || confirmPassword == "")
+                {
+                    MessageBox.Show("Password should not be emty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txNewPassword.Focus();
+                    return;
+                }if (newPassword == "" || confirmPassword == "")
+                {
+                    MessageBox.Show("Password should not be emty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txConfirmPassword.Focus();
+                    return;
+                }
+                else if (newPassword == confirmPassword)
                 {
                     UpdatePassword(newPassword);
                     this.Close();
                     MessageBox.Show("Password changed!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                
                 else
                 {
                     MessageBox.Show("Passwords doesn't match!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);

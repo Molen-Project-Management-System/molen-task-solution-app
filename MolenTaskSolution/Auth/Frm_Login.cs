@@ -34,10 +34,23 @@ namespace MolenTaskSolution.Auth
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            if (loginTxEmail.Text == "")
+            {
+                required1.Text = "This is required";
+                loginTxEmail.Focus();
+                return;
+            }
+            if (loginTxPassword.Text == "")
+            {
+                required2.Text = "This is required";
+                loginTxPassword.Focus();
+                return;
+            }
             var user =  (from s in db.Users 
-                        where s.Email == loginFrmTextBoxEmail.Text select s).FirstOrDefault();
+                        where s.Email == loginTxEmail.Text select s).FirstOrDefault();
             
-            if(user?.Password == loginFrmTextBoxPassword.Text)
+            
+            if(user?.Password == loginTxPassword.Text)
             {
                 isLogin = true;
 

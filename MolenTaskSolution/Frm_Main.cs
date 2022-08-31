@@ -82,18 +82,30 @@ namespace MolenTaskSolution
             lbPageName.Text = btnUsers.Text;
         }
 
+        private void projectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenProjectPanel();
+
+        }
+
         private void btnProjects_Click(object sender, EventArgs e)
         {
-            //if (!panelPages.Controls.Contains(Project_Panel.Instance))
-            //{
-            //    panelPages.Controls.Add(Project_Panel.Instance);
-            //    Project_Panel.Instance.Dock = DockStyle.Fill;
-            //}
-            //else
-            //{
-            //    Project_Panel.Instance.BringToFront();
-            //}
-            //lbPageName.Text = btnProjects.Text;
+            OpenProjectPanel();
+
+        }
+
+        private void OpenProjectPanel()
+        {
+            if (!panelPages.Controls.Contains(Project_Panel.Instance))
+            {
+                panelPages.Controls.Add(Project_Panel.Instance);
+                Project_Panel.Instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                Project_Panel.Instance.BringToFront();
+            }
+            lbPageName.Text = btnProjects.Text;
         }
 
         private void accountStripMenuItem4_Click(object sender, EventArgs e)
@@ -106,9 +118,6 @@ namespace MolenTaskSolution
             var userID = Frm_Login.User_Id;
             Frm_User frm = new Frm_User(userID.Value);
             frm.Show();
-            
-
-
         }
 
         private void accountStripMenuItem3_Click(object sender, EventArgs e)
@@ -117,5 +126,7 @@ namespace MolenTaskSolution
             Frm_Reset user = new Frm_Reset(userID.Value);
             user.Show();
         }
+
+
     }
 }

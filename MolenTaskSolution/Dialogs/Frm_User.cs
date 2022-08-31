@@ -30,7 +30,7 @@ namespace MolenTaskSolution.Dialogs
             txName.Text = user.UserName;
             cbGender.Text = user.Gender;
             txEmail.Text = user.Email;
-            if (user.Role != "Project Leader")
+            if (user.Role != "Project Leader" || user.Role != "admin")
             {
                 cbRole.Text = user.Role;
                 cbRole.Enabled = false;

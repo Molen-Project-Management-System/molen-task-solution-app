@@ -144,7 +144,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(140, 414);
+            this.label1.Location = new System.Drawing.Point(284, 361);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(132, 20);
             this.label1.TabIndex = 8;
@@ -152,16 +152,17 @@
             // 
             // dateTimePickerCompletion
             // 
-            this.dateTimePickerCompletion.Location = new System.Drawing.Point(140, 437);
+            this.dateTimePickerCompletion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerCompletion.Location = new System.Drawing.Point(285, 384);
             this.dateTimePickerCompletion.Name = "dateTimePickerCompletion";
-            this.dateTimePickerCompletion.Size = new System.Drawing.Size(276, 27);
+            this.dateTimePickerCompletion.Size = new System.Drawing.Size(131, 27);
             this.dateTimePickerCompletion.TabIndex = 18;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(140, 361);
+            this.label4.Location = new System.Drawing.Point(139, 361);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 20);
             this.label4.TabIndex = 8;
@@ -169,9 +170,10 @@
             // 
             // dateTimePickerStart
             // 
-            this.dateTimePickerStart.Location = new System.Drawing.Point(141, 384);
+            this.dateTimePickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerStart.Location = new System.Drawing.Point(140, 384);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
-            this.dateTimePickerStart.Size = new System.Drawing.Size(276, 27);
+            this.dateTimePickerStart.Size = new System.Drawing.Size(131, 27);
             this.dateTimePickerStart.TabIndex = 18;
             // 
             // lbTaskStatus

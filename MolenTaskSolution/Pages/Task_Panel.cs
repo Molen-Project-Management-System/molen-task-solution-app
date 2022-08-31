@@ -33,7 +33,7 @@ namespace MolenTaskSolution.Pages
         {
             InitializeComponent();
         }
-        dbmolenContext model = new dbmolenContext();
+        dbmolenContext db = new dbmolenContext();
 
         private void Page_Task_Load(object sender, EventArgs e)
         {
@@ -46,13 +46,14 @@ namespace MolenTaskSolution.Pages
         }
         void Update_UI()
         {
-            var username = from u in model.Users
+            var username = from u in db.Users
                            where u.UserName != null
                            select u.UserName;
+            cbxUsers.DataSource = username.ToList();
 
-            var query = (from t in model.Tasks
-                         join u in model.Users on t.TaskOwnerId equals u.UserId
-                         join p in model.Projects on t.ProjectId equals p.ProjectId
+            var query = (from t in db.Tasks
+                         join u in db.Users on t.TaskOwnerId equals u.UserId
+                         join p in db.Projects on t.ProjectId equals p.ProjectId
                          select new
                          {
                              t.TasksId,
@@ -65,8 +66,8 @@ namespace MolenTaskSolution.Pages
                          }
                          );
             var tasks = query.ToList();
-            dgwTaskPanel.DataSource = tasks;
-            cbxUsers.DataSource = username.ToList();
+            dgwUserPanel.DataSource = tasks;
+            
         }
 
         private void addTask_Click(object sender, EventArgs e)
@@ -81,27 +82,25 @@ namespace MolenTaskSolution.Pages
 
         private  void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dgwTaskPanel.SelectedRows.Count == 0)
+            if (dgwUserPanel.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please select a row!");
                 return;
             }
             if (MessageBox.Show("Are you sure you want to delete this record ?", "EF CRUD Operation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                DataGridViewRow dr = dgwTaskPanel.SelectedRows[0];
-                //var selectedRowIndex = (int)dgwTaskPanel.SelectedRows[0].Cells[0].Value;
+                DataGridViewRow dr = dgwUserPanel.SelectedRows[0];
                 var selectedTaskId = Convert.ToInt32(dr.Cells[0].Value);              
 
-                var taskDel = (from t in model.Tasks
+                var taskDel = (from t in db.Tasks
                                where t.TasksId == selectedTaskId
                                select t).FirstOrDefault();
                 if (taskDel == null)
                     return;
-                //var silinecek_task = newTask.Where(t => t.TaskName == selectedRowIndex).FirstOrDefault(); 
                 try
                 {
-                    model.Tasks.Remove(taskDel);
-                    var result = model.SaveChanges();
+                    db.Tasks.Remove(taskDel);
+                    var result = db.SaveChanges();
                 }
                 catch(Exception ex)
                 {
@@ -112,13 +111,13 @@ namespace MolenTaskSolution.Pages
         
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (this.dgwTaskPanel.SelectedRows.Count > 0)
+            if (this.dgwUserPanel.SelectedRows.Count > 0)
             {
-                DataGridViewRow dr = dgwTaskPanel.SelectedRows[0];
+                DataGridViewRow dr = dgwUserPanel.SelectedRows[0];
 
                 var selectedTaskId = Convert.ToInt32(dr.Cells[0].Value);
 
-                var temp = (from t in model.Tasks
+                var temp = (from t in db.Tasks
                             where t.TasksId == selectedTaskId
                             select t).FirstOrDefault();
                 if (temp == null)
@@ -136,13 +135,13 @@ namespace MolenTaskSolution.Pages
                 Update_UI();
             else
             {
-                var username = from u in model.Users
+                var username = from u in db.Users
                                where u.UserName == cbxUsers.Text
                                select u.UserName;
 
-                var query = (from t in model.Tasks
-                             join u in model.Users on t.TaskOwnerId equals u.UserId
-                             join p in model.Projects on t.ProjectId equals p.ProjectId
+                var query = (from t in db.Tasks
+                             join u in db.Users on t.TaskOwnerId equals u.UserId
+                             join p in db.Projects on t.ProjectId equals p.ProjectId
                              select new
                              {
                                  t.TasksId,
@@ -155,7 +154,7 @@ namespace MolenTaskSolution.Pages
                              }
                              );
                 var tasks = query.ToList();
-                dgwTaskPanel.DataSource = tasks;
+                dgwUserPanel.DataSource = tasks;
             }
         }
 
