@@ -30,13 +30,6 @@ namespace MolenTaskSolution.Pages
             InitializeComponent();
         }
         dbmolenContext db = new dbmolenContext();
-
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void User_Panel_Load(object sender, EventArgs e)
         {
             if (!this.DesignMode)
@@ -101,11 +94,83 @@ namespace MolenTaskSolution.Pages
             var userRolBased = query.ToList();
             dgwUserPanel.DataSource = userRolBased;
         }
+        private bool checkUserAuth(int userID)
+        {
+            var userRole = (from u in db.Users
+                            where u.UserId == userID
+                            select u.Role).FirstOrDefault().ToString();
+            if (userRole == "Project Leader" || userRole == "Manager")
+                return false;
+            else
+                return true;
+        }
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            Frm_RolAssign TaskFrm = new Frm_RolAssign();
-            TaskFrm.Show();
+            var userID = Frm_Login.User_Id;
+            if (checkUserAuth(userID.Value))
+            {
+                MessageBox.Show("You have no Permission!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            } 
+            else
+            {
+                Frm_RolAssign frm = new Frm_RolAssign();
+                frm.Show();
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var userID = Frm_Login.User_Id;
+            if (checkUserAuth(userID.Value))
+            {
+                MessageBox.Show("You have no Permission!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                if (dgwUserPanel.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Please select a row!");
+                    return;
+                }
+                if (MessageBox.Show("Are you sure you want to delete this record ?", "EF CRUD Operation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    DataGridViewRow dr = dgwUserPanel.SelectedRows[0];
+                    var selectedUserId = Convert.ToInt32(dr.Cells[0].Value);
+
+                    var userDel = (from u in db.Users
+                                   where u.UserId == selectedUserId
+                                   select u).FirstOrDefault();
+                    if (userDel == null)
+                        return;
+                    try
+                    {
+                        db.Users.Remove(userDel);
+                        var result = db.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            var userID = Frm_Login.User_Id;
+            if (checkUserAuth(userID.Value))
+            {
+                MessageBox.Show("You have no Permission!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Update_UI();
         }
     }
 }

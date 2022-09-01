@@ -139,10 +139,10 @@
             // 
             this.cbRole.FormattingEnabled = true;
             this.cbRole.Items.AddRange(new object[] {
-            "Developer",
-            "Project Leader",
             "Customer",
-            "Manager"});
+            "Developer",
+            "Manager",
+            "Project Leader"});
             this.cbRole.Location = new System.Drawing.Point(129, 384);
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(276, 28);

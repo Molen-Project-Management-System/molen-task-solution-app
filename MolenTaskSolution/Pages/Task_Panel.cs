@@ -66,7 +66,7 @@ namespace MolenTaskSolution.Pages
                          }
                          );
             var tasks = query.ToList();
-            dgwUserPanel.DataSource = tasks;
+            dgwTaskPanel.DataSource = tasks;
             
         }
 
@@ -82,14 +82,14 @@ namespace MolenTaskSolution.Pages
 
         private  void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dgwUserPanel.SelectedRows.Count == 0)
+            if (dgwTaskPanel.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please select a row!");
                 return;
             }
             if (MessageBox.Show("Are you sure you want to delete this record ?", "EF CRUD Operation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                DataGridViewRow dr = dgwUserPanel.SelectedRows[0];
+                DataGridViewRow dr = dgwTaskPanel.SelectedRows[0];
                 var selectedTaskId = Convert.ToInt32(dr.Cells[0].Value);              
 
                 var taskDel = (from t in db.Tasks
@@ -111,9 +111,9 @@ namespace MolenTaskSolution.Pages
         
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (this.dgwUserPanel.SelectedRows.Count > 0)
+            if (this.dgwTaskPanel.SelectedRows.Count > 0)
             {
-                DataGridViewRow dr = dgwUserPanel.SelectedRows[0];
+                DataGridViewRow dr = dgwTaskPanel.SelectedRows[0];
 
                 var selectedTaskId = Convert.ToInt32(dr.Cells[0].Value);
 
@@ -154,7 +154,7 @@ namespace MolenTaskSolution.Pages
                              }
                              );
                 var tasks = query.ToList();
-                dgwUserPanel.DataSource = tasks;
+                dgwTaskPanel.DataSource = tasks;
             }
         }
 

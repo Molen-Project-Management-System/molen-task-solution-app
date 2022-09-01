@@ -34,7 +34,6 @@
             this.btnEditProject = new System.Windows.Forms.Button();
             this.btnDeleteProject = new System.Windows.Forms.Button();
             this.btnAddProject = new System.Windows.Forms.Button();
-            this.cbxUsers = new System.Windows.Forms.ComboBox();
             this.cbxStatus = new System.Windows.Forms.ComboBox();
             this.btnSearchTask = new System.Windows.Forms.PictureBox();
             this.searchBoxTask = new System.Windows.Forms.TextBox();
@@ -56,6 +55,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(283, 19);
             this.pictureBox1.Name = "pictureBox1";
@@ -63,6 +63,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 60;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnEditProject
             // 
@@ -92,6 +93,7 @@
             this.btnDeleteProject.TabIndex = 57;
             this.btnDeleteProject.Text = "DELETE";
             this.btnDeleteProject.UseVisualStyleBackColor = false;
+            this.btnDeleteProject.Click += new System.EventHandler(this.btnDeleteProject_Click);
             // 
             // btnAddProject
             // 
@@ -107,19 +109,6 @@
             this.btnAddProject.Text = "ADD";
             this.btnAddProject.UseVisualStyleBackColor = false;
             this.btnAddProject.Click += new System.EventHandler(this.btnAddProject_Click);
-            // 
-            // cbxUsers
-            // 
-            this.cbxUsers.BackColor = System.Drawing.SystemColors.Highlight;
-            this.cbxUsers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cbxUsers.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.cbxUsers.FormattingEnabled = true;
-            this.cbxUsers.Items.AddRange(new object[] {
-            "Employee(All)"});
-            this.cbxUsers.Location = new System.Drawing.Point(565, 19);
-            this.cbxUsers.Name = "cbxUsers";
-            this.cbxUsers.Size = new System.Drawing.Size(220, 28);
-            this.cbxUsers.TabIndex = 55;
             // 
             // cbxStatus
             // 
@@ -168,7 +157,6 @@
             this.Controls.Add(this.btnEditProject);
             this.Controls.Add(this.btnDeleteProject);
             this.Controls.Add(this.btnAddProject);
-            this.Controls.Add(this.cbxUsers);
             this.Controls.Add(this.cbxStatus);
             this.Controls.Add(this.btnSearchTask);
             this.Controls.Add(this.searchBoxTask);
@@ -190,7 +178,6 @@
         private Button btnEditProject;
         private Button btnDeleteProject;
         private Button btnAddProject;
-        private ComboBox cbxUsers;
         private ComboBox cbxStatus;
         private PictureBox btnSearchTask;
         private TextBox searchBoxTask;

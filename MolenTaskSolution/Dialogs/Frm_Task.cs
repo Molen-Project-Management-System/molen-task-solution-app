@@ -62,7 +62,6 @@ namespace MolenTaskSolution.Dialogs
                 this.Close();
                 MessageBox.Show("Task is edited successfully..!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
-
             }
             var newTask = new Task();
 

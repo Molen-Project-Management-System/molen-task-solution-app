@@ -257,7 +257,7 @@
             this.btnLogout.Location = new System.Drawing.Point(317, 24);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(94, 32);
-            this.btnLogout.TabIndex = 1;
+            this.btnLogout.TabIndex = 4;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
@@ -268,7 +268,7 @@
             this.btnUsers.Location = new System.Drawing.Point(217, 24);
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Size = new System.Drawing.Size(94, 32);
-            this.btnUsers.TabIndex = 1;
+            this.btnUsers.TabIndex = 3;
             this.btnUsers.Text = "Users";
             this.btnUsers.UseVisualStyleBackColor = true;
             this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
@@ -279,7 +279,7 @@
             this.btnTasks.Location = new System.Drawing.Point(117, 24);
             this.btnTasks.Name = "btnTasks";
             this.btnTasks.Size = new System.Drawing.Size(94, 32);
-            this.btnTasks.TabIndex = 1;
+            this.btnTasks.TabIndex = 2;
             this.btnTasks.Text = "Tasks";
             this.btnTasks.UseVisualStyleBackColor = true;
             this.btnTasks.Click += new System.EventHandler(this.btnTasks_Click);

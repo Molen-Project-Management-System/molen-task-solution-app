@@ -25,4 +25,6 @@ namespace MolenTaskSolution.Models
         public virtual ICollection<FileAttachment> FileAttachments { get; set; }
         public virtual ICollection<Task> Tasks { get; set; }
     }
+
+    
 }

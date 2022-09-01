@@ -23,16 +23,7 @@ namespace MolenTaskSolution
         private void Frm_Main_Load(object sender, EventArgs e)
         {
             updateInfo();
-
-            if (!panelPages.Controls.Contains(Project_Panel.Instance))
-            {
-                panelPages.Controls.Add(Project_Panel.Instance);
-                Project_Panel.Instance.Dock = DockStyle.Fill;
-            }
-            else
-            {
-                Project_Panel.Instance.BringToFront();
-            }
+            OpenProjectPanel();
         }
 
         private void updateInfo()
